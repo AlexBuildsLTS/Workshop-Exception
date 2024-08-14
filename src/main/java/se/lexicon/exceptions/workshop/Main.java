@@ -1,27 +1,32 @@
 package se.lexicon.exceptions.workshop;
 
+import se.lexicon.exceptions.workshop.data_access.NameService;
+import se.lexicon.exceptions.workshop.DuplicateNameException;
+import se.lexicon.exceptions.workshop.domain.Person;
+
+import java.util.ArrayList;
 import java.util.List;
 
-import se.lexicon.exceptions.workshop.data_access.NameService;
-import se.lexicon.exceptions.workshop.domain.Person;
-import se.lexicon.exceptions.workshop.fileIO.CSVReader_Writer;
-
 public class Main {
+    public static void main(String[] args) {
 
-	public static void main(String[] args) {
-		
-		List <String> maleFirstNames = CSVReader_Writer.getMaleFirstNames();
-        List <String> femaleFirstNames = CSVReader_Writer.getFemaleFirstNames();
+        List<String> maleNames = new ArrayList<>(List.of("Alex", "Michael", "David"));
+        List<String> femaleNames = new ArrayList<>(List.of("Melina", "Emily", "Anna"));
+        List<String> lastNames = new ArrayList<>(List.of("Scott", "Blunt", "Jackson"));
 
-        List <String> lastNames = CSVReader_Writer.getLastNames();
-
-
-        NameService nameService = new NameService(maleFirstNames, femaleFirstNames,lastNames);
+        // Create the NameService object
+        NameService nameService = new NameService(maleNames, femaleNames, lastNames);
 
 
-        Person test = nameService.getNewRandomPerson();
-        System.out.println(test);
+        try {
+            nameService.addMaleFirstName("Johan");
+            System.out.println("New male first name added and saved.");
+        } catch (DuplicateNameException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
 
-	}
 
+        Person randomPerson = nameService.getNewRandomPerson();
+        System.out.println("Generated Person: " + randomPerson);
+    }
 }
