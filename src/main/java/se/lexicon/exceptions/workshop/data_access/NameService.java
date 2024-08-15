@@ -15,7 +15,7 @@ public class NameService {
 	private List<String> lastNames;
 	private static Random random = new Random();
 
-	// Constructor - should ensure no nulls
+
 	public NameService(List<String> maleFirstNames, List<String> femaleFirstNames, List<String> lastNames) {
 		this.maleFirstNames = maleFirstNames;
 		this.femaleFirstNames = femaleFirstNames;
