@@ -19,8 +19,15 @@ public class Main {
 
 
         try {
-            nameService.addMaleFirstName("Johan");
+            nameService.addMaleFirstName("Alex");
             System.out.println("New male first name added and saved.");
+        } catch (DuplicateNameException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        try {
+            nameService.addFemaleFirstName("Daniella");
+            System.out.println("New female first name added and saved.");
         } catch (DuplicateNameException e) {
             System.out.println("Error: " + e.getMessage());
         }

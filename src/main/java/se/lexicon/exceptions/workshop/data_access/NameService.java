@@ -65,9 +65,9 @@ public class NameService {
 	 * Task: Check if List<String> femaleFirstNames already contains the name.
 	 * If name already exists, throw a new custom exception called DuplicateNameException.
 	 * @param name - the name to add to the femaleFirstNames list.
-	 * @throws DuplicateNameException - if the name already exists in the list.
+	 * If the name already exists in the list, a DuplicateNameException is thrown.
 	 */
-	public void addFemaleFirstName(String name) throws DuplicateNameException {
+	public void addFemaleFirstName(String name) {
 		if (femaleFirstNames.contains(name)) {
 			throw new DuplicateNameException("The name '" + name + "' already exists in the female first names list.");
 		}
@@ -79,11 +79,11 @@ public class NameService {
 	 * Task: Check if List<String> maleFirstNames already contains the name.
 	 * If name already exists, throw a new custom exception called DuplicateNameException.
 	 * @param name - the name to add to the maleFirstNames list.
-	 * @throws DuplicateNameException - if the name already exists in the list.
+	 * If the name already exists in the list, a DuplicateNameException is thrown.
 	 */
-	public void addMaleFirstName(String name) throws DuplicateNameException {
+	public void addMaleFirstName(String name) {
 		if (maleFirstNames.contains(name)) {
-			throw new DuplicateNameException("The name '" + name + "' the persons name already exists.");
+			throw new DuplicateNameException("The name '" + name + "' already exists in the male first names list.");
 		}
 		maleFirstNames.add(name);
 		CSVReader_Writer.saveMaleNames(maleFirstNames);
@@ -93,9 +93,9 @@ public class NameService {
 	 * Task: Check if List<String> lastNames already contains the name.
 	 * If name already exists, throw a new custom exception called DuplicateNameException.
 	 * @param lastName - the last name to add to the lastNames list.
-	 * @throws DuplicateNameException - if the last name already exists in the list.
+	 * If the name already exists in the list, a DuplicateNameException is thrown.
 	 */
-	public void addLastName(String lastName) throws DuplicateNameException {
+	public void addLastName(String lastName) {
 		if (lastNames.contains(lastName)) {
 			throw new DuplicateNameException("The name '" + lastName + "' already exists in the last names list.");
 		}

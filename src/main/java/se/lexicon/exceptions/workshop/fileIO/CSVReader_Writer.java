@@ -58,7 +58,7 @@ public class CSVReader_Writer {
                     .collect(Collectors.toList());
         } catch (IOException e) {
             // Handling IOException which includes FileNotFoundException as it's a subclass
-            System.out.println("Error reading file: firstname_female.txt. " + e.getMessage());
+            System.err.println("Error reading file: firstname_female.txt. " + e.getMessage());
         }
 
         return names;
@@ -106,7 +106,7 @@ public class CSVReader_Writer {
             }
             writer.flush();
         } catch (IOException e) {
-            System.out.println("Error writing to file: firstname_female.txt. " + e.getMessage());
+            System.err.println("Error writing to file: firstname_female.txt. " + e.getMessage());
         }
     }
 
@@ -117,7 +117,7 @@ public class CSVReader_Writer {
             }
             writer.flush();
         } catch (IOException e) {
-            System.out.println("Error writing to file: firstname_males.txt. " + e.getMessage());
+            System.err.println("Error writing to file: firstname_males.txt. " + e.getMessage());
         }
     }
 }
